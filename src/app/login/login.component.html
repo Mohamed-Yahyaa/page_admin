@@ -1,0 +1,25 @@
+<div class="login-container">
+    <mat-card class="login-card">
+      <div class="logo-container">
+        <img src="/assets/axiobat.jpg" alt="AxioBat Logo" class="logo" />
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Login</mat-label>
+          <input matInput formControlName="username" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
+        </mat-form-field>
+  
+        <button  class="full-width-2">Se connecter</button>
+        <button  class="full-width-3">Mot de passe oublié? </button>
+      </form>
+    </mat-card>
+    <div class="page-right">
+        <img src="/assets/admin.png" alt="page" class="admin">
+    </div>
+  </div>
+  
