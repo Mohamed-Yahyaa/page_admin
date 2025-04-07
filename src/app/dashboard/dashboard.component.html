@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>Plans</h2>
+  
+    <form (submit)="saveAdmin()">
+      <input [(ngModel)]="currentadmin.name" name="name" placeholder="Name" required>
+      <input [(ngModel)]="currentadmin.pack" name="pack" placeholder="Pack" required>
+      <input [(ngModel)]="currentadmin.options" name="options" placeholder="Options" required>
+      <input [(ngModel)]="currentadmin.consommation" name="consommation" placeholder="Consommation" required>
+      <input [(ngModel)]="currentadmin.sms" name="sms" placeholder="SMS" required>
+      <input [(ngModel)]="currentadmin.ocr" name="ocr" placeholder="OCR" required>
+      <button type="submit">{{ isEditing ? 'Update' : 'Add' }}</button>
+    </form>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Pack</th>
+          <th>Options</th>
+          <th>Consommation</th>
+          <th>SMS</th>
+          <th>OCR</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of admins">
+          <td>{{ admin.name }}</td>
+          <td>{{ admin.pack }}</td>
+          <td>{{ admin.options }}</td>
+          <td>{{ admin.consommation }}</td>
+          <td>{{ admin.sms }}</td>
+          <td>{{ admin.ocr }}</td>
+          <td>
+            <button (click)="editAdmin(admin)">Edit</button>
+            <button (click)="deleteAdmin(admin.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

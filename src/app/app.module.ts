@@ -5,21 +5,33 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule, MatIconAnchor, MatIconButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RouterModule, Routes } from '@angular/router';
+
+
+const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent }
+];
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent , DashboardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatInputModule,
     MatButtonModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatIconAnchor,MatIconButton
+    MatIconAnchor,MatIconButton,
+    RouterModule.forRoot(routes)
   ],
+  exports:[RouterModule],
   providers: [],
   bootstrap: [AppComponent],
 })
