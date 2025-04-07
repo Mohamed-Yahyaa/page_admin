@@ -1,44 +1,47 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Admin } from './interface.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class adminService {
-  private admins: Admin[] = [];
-  private adminsSubject = new BehaviorSubject<Admin[]>([]);
-
-  admins$ = this.adminsSubject.asObservable();
-
-  constructor() {
-    // Add dummy data
-    this.admins = [
-      { id: 1, name: 'User A', pack: 'Basic', options: 'Extra data', consommation: '5GB', sms: '80', ocr: 'Enabled' }
-    ];
-    this.adminsSubject.next(this.admins);
-  }
-
-  getAdmins() {
-    return this.admins$;
-  }
-
-  addAdmin(admin: Admin) {
-    admin.id = Date.now();
-    this.admins.push(admin);
-    this.adminsSubject.next(this.admins);
-  }
-
-  updateAdmin(admin: Admin) {
-    const index = this.admins.findIndex(p => p.id === admin.id);
-    if (index !== -1) {
-      this.admins[index] = admin;
-      this.adminsSubject.next(this.admins);
+export class AdminService {
+  private admins: Admin[] = [
+    {
+      id: 1,
+      name: 'Admin 1',
+      pack: 'Pack advanced',
+      options: 'Option X',
+      consommation: '100 Go',
+      sms: '500 SMS',
+      ocr: 'Oui',
+      date: '14/05/2025',
+    },
+    {
+      id: 2,
+      name: 'Admin 2',
+      pack: 'Pack Basic',
+      options: 'Option Y',
+      consommation: '300 Go',
+      sms: '200 SMS',
+      ocr: 'Non',
+      date: '25/01/2025'
+    },
+    {
+      id: 3,
+      name: 'oussama',
+      pack: 'Pack Basic',
+      options: 'Option Y',
+      consommation: '20 Go',
+      sms: '100 SMS',
+      ocr: 'Non',
+      date: '11/09/2024'
     }
-  }
+  ];
 
-  deleteAdmin(id: number) {
-    this.admins = this.admins.filter(p => p.id !== id);
-    this.adminsSubject.next(this.admins);
+  constructor() {}
+
+  getAdmins(): Observable<Admin[]> {
+    return of(this.admins);
   }
 }
