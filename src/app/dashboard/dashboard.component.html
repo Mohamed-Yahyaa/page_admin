@@ -1,30 +1,22 @@
-<div class="container">
-  <h2>Admin</h2>
+<div class="dashboard-container">
 
-  <table cellpadding="5">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Pack</th>
-        <th>Options</th>
-        <th>Consommation</th>
-        <th>SMS</th>
-        <th>OCR</th>
-        <th>date</th>
-      </tr> 
-    </thead>
-    <tbody>
-      <tr *ngFor="let admin of admins">
-        <td>{{ admin.name }}</td>
-        <td>{{ admin.pack }}</td>
-        <td>{{ admin.options }}</td>
-        <td>{{ admin.consommation }}</td>
-        <td>{{ admin.sms }}</td>
-        <td>{{ admin.ocr }}</td>
-        <td>{{ admin.date }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- Top Row: Name and Search -->
+  <div class="top-row">
+    <div class="name" *ngFor="let admin of admins">{{ admin.name }}</div>
+    <input type="text" placeholder="Search..." class="search-box">
+  </div>
+
+  <!-- Data Cards Layout -->
+  <div class="admin-card" *ngFor="let admin of admins">
+    <div class="data-row">
+      <div class="data-item"><strong>Pack:</strong> {{ admin.pack }}</div> 
+      <div class="data-item"><strong>Options:</strong> {{ admin.options }}</div>
+      <div class="data-item"><strong>Consommation:</strong> {{ admin.consommation }}</div>
+      <div class="data-item"><strong>SMS:</strong> {{ admin.sms }}</div>
+      <div class="data-item"><strong>OCR:</strong> {{ admin.ocr }}</div>
+    </div>
+    <div class="date">{{ admin.date }}</div>
+  </div>
 
   <p *ngIf="admins.length === 0">No admins to display.</p>
 </div>

@@ -17,26 +17,26 @@ export class AdminService {
       ocr: 'Oui',
       date: '14/05/2025',
     },
-    {
-      id: 2,
-      name: 'Admin 2',
-      pack: 'Pack Basic',
-      options: 'Option Y',
-      consommation: '300 Go',
-      sms: '200 SMS',
-      ocr: 'Non',
-      date: '25/01/2025'
-    },
-    {
-      id: 3,
-      name: 'oussama',
-      pack: 'Pack Basic',
-      options: 'Option Y',
-      consommation: '20 Go',
-      sms: '100 SMS',
-      ocr: 'Non',
-      date: '11/09/2024'
-    }
+    // {
+    //   id: 2,
+    //   name: 'Admin 2',
+    //   pack: 'Pack Basic',
+    //   options: 'Option Y',
+    //   consommation: '300 Go',
+    //   sms: '200 SMS',
+    //   ocr: 'Non',
+    //   date: '25/01/2025'
+    // },
+    // {
+    //   id: 3,
+    //   name: 'oussama',
+    //   pack: 'Pack Basic',
+    //   options: 'Option Y',
+    //   consommation: '20 Go',
+    //   sms: '100 SMS',
+    //   ocr: 'Non',
+    //   date: '11/09/2024'
+    // }
   ];
 
   constructor() {}
