@@ -11,18 +11,24 @@
   align-items: center;
   gap: 15px;
   margin-bottom: 30px;
+  
 }
 
 .name {
   font-size: 22px;
   font-weight: bold;
+  justify-content: center;
+    margin-left: 5em;
+    align-items: center;
+    display: flex;
 }
 
 .search-box {
   padding: 8px 12px;
-  width: 250px;
+  width: 15em;
   border: 1px solid #ccc;
   border-radius: 6px;
+  
 }
 
 .admin-card {

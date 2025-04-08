@@ -29,8 +29,13 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
+  
       if (username === 'admin' && password === '235') {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard'], { queryParams: { id: 1 } });
+      } else if (username === 'user' && password === '987') {
+        this.router.navigate(['/dashboard'], { queryParams: { id: 2 } });
+      } else if (username === 'user2' && password === '852') {
+        this.router.navigate(['/dashboard'], { queryParams: { id: 3 } });
       } else {
         alert('Invalid credentials. Please try again.');
       }
@@ -38,5 +43,6 @@ export class LoginComponent {
       console.log('Form is invalid');
     }
   }
+  
   
 }
