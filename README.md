@@ -1,25 +1,18 @@
-# 🔐 Angular Login Page
+# 🛠️ Admin Login Prototype (Angular)
 
-This is a responsive login page built with **Angular** and **Angular Material**, featuring:
+This is a **demo project** for an admin login page built using **Angular** and **Angular Material**.  
+It serves as a **UI prototype** with a hardcoded login validation (no backend).
 
-- A clean two-column layout (60% color background, 40% login form).
-- Hardcoded login credentials for demo: `..`.
-- Responsive design for desktop and mobile.
-- Simple and modern UI with Material Design.
+---
 
-## 🚀 Tech Stack
+## 🎯 Features
 
-- Angular
-- Angular Material
-- TypeScript
-- SCSS / CSS
+- 💼 Admin-only login (username: `..`,  password: `..`)
+- 🎨 Modern UI using Angular Material
+- 🖼️ Split-screen layout (60% blue background, 40% white content)
+- 📱 Fully responsive (mobile & desktop)
 
-## 📸 Screenshots
-
-![screenshot](./assets/screenshot.png)
+---
 
 ## 🧪 Demo Credentials
 
-```bash
-Username: admin
-Password: 235
