@@ -28,6 +28,7 @@ const routes: Routes = [
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatIconButton,
     ReactiveFormsModule,
     MatIconAnchor,MatIconButton,
     RouterModule.forRoot(routes)

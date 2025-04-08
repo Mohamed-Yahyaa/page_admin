@@ -10,12 +10,18 @@
   <div class="admin-card" *ngFor="let admin of admins">
     <div class="data-row">
       <div class="data-item"><strong>Pack:</strong> {{ admin.pack }}</div> 
-      <div class="data-item"><strong>Options:</strong> {{ admin.options }}</div>
+      <div class="data-item"><strong>Options:</strong> {{ admin.options }} <button class="plus-button">
+        <span class="material-icons">add</span>
+      </button></div>
       <div class="data-item"><strong>Consommation:</strong> {{ admin.consommation }}</div>
       <div class="data-item"><strong>SMS:</strong> {{ admin.sms }}</div>
       <div class="data-item"><strong>OCR:</strong> {{ admin.ocr }}</div>
     </div>
-    <div class="date">{{ admin.date }}</div>
+    <div class="date"><strong>Date</strong>{{ admin.date }}</div>
+   
+   
+    
+  
   </div>
 
   <p *ngIf="admins.length === 0">No admins to display.</p>
