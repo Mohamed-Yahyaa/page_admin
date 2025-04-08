@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   standalone: true, 
@@ -27,8 +28,12 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-      this.router.navigate(['/dashboard']); // <-- navigate here
+      const { username, password } = this.loginForm.value;
+      if (username === 'admin' && password === '235') {
+        this.router.navigate(['/dashboard']);
+      } else {
+        alert('Invalid credentials. Please try again.');
+      }
     } else {
       console.log('Form is invalid');
     }

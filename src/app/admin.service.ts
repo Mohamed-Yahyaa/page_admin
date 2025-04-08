@@ -9,7 +9,7 @@ export class AdminService {
   private admins: Admin[] = [
     {
       id: 1,
-      name: 'Admin 1',
+      name: 'Ahmed el',
       pack: 'Pack advanced',
       options: 'Option X',
       consommation: '100 Go',
