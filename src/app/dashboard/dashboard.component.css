@@ -24,13 +24,18 @@
 }
 
 .search-box {
-  padding: 8px 12px;
-  width: 15em;
-  border: 1px solid #ccc;
+  padding: 10px 1px;
+  width: 28em;
+  border: 1px solid #0f0f0f;
   border-radius: 6px;
-  transition: all 5s ease;
-
+  transition: all 0.3s ease; /* Adjusted to make hover feel smooth */
 }
+
+.search-box:hover {
+  box-shadow: 0 4px 12px #48a4c23f;
+  transform: translateY(-2px); /* Optional: slight lift effect */
+}
+
 
 .icon-button {
   background: none;

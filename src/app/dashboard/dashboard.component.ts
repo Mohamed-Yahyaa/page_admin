@@ -16,12 +16,12 @@ export class DashboardComponent implements OnInit {
   searchTerm: string = '';
   searchVisible: boolean = true;
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
     this.adminService.getAdmins().subscribe(data => {
       this.admins = data;
-     
+
     });
   }
 
@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
         admin.name.toLowerCase().includes(term)
       );
     } else {
-      this.filteredAdmins = []; 
+      this.filteredAdmins = [];
     }
   }
 }
