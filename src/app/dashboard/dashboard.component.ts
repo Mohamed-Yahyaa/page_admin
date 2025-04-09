@@ -12,11 +12,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   admins: Admin[] = [];
-  displayedAdmin: Admin | undefined;
+  // displayedAdmin: Admin | undefined;
 
-  constructor(private adminService: AdminService, private route: ActivatedRoute) {}
+  constructor(private adminService: AdminService) {}
 
-  searchVisible: boolean = false;
+  searchVisible: boolean = true;
 
   toggleSearch() {
     this.searchVisible = !this.searchVisible;
@@ -24,12 +24,12 @@ export class DashboardComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      const id = +params['id'];
+    
+      
       this.adminService.getAdmins().subscribe(data => {
         this.admins = data;
-        this.displayedAdmin = this.admins.find(admin => admin.id === id);
-      });
+        
+      
     });
   }
 }
