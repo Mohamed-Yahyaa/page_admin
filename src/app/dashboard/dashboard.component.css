@@ -11,16 +11,16 @@
   align-items: center;
   gap: 15px;
   margin-bottom: 30px;
-  
+
 }
 
 .name {
   font-size: 22px;
   font-weight: bold;
   justify-content: center;
-    margin-left: 5em;
-    align-items: center;
-    display: flex;
+  margin-left: 5em;
+  align-items: center;
+  display: flex;
 }
 
 .search-box {
@@ -29,7 +29,7 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   transition: all 5s ease;
-  
+
 }
 
 .icon-button {
@@ -45,7 +45,7 @@
   border-radius: 10px;
   padding: 15px 20px;
   margin-bottom: 15px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

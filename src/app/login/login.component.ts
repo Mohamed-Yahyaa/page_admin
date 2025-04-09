@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  standalone: true, 
+  standalone: true,
   imports: [CommonModule, MatInputModule, MatButtonModule, MatCardModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
@@ -19,7 +19,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   hidePassword = true;
 
-  constructor(private fb: FormBuilder, private router: Router ) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -29,9 +29,9 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
-  
+
       if (username === 'user01' && password === 'demodemo') {
-        this.router.navigate(['/dashboard'], { queryParams: { id: 1 } });
+        this.router.navigate(['/dashboard']);
       } else {
         alert('Invalid credentials. Please try again.');
       }
@@ -39,6 +39,6 @@ export class LoginComponent {
       console.log('Form is invalid');
     }
   }
-  
-  
+
+
 }
