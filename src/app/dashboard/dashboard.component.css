@@ -32,7 +32,7 @@
 }
 
 .search-box:hover {
-  box-shadow: 0 4px 12px #48a4c23f;
+  box-shadow: 0 4px 12px #48a4c256;
   transform: translateY(-2px); /* Optional: slight lift effect */
 }
 

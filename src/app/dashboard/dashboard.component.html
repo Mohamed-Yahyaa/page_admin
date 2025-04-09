@@ -2,9 +2,9 @@
   <div class="top-row">
     <input *ngIf="searchVisible" type="text" placeholder=" Search..." class="search-box" [(ngModel)]="searchTerm"
       (input)="onSearchChange()" />
-    <button class="icon-button">
+    <!-- <button class="icon-button">
       <i class="fas fa-search"></i>
-    </button>
+    </button> -->
   </div>
 
   <div class="admin-card" *ngFor="let admin of filteredAdmins">
