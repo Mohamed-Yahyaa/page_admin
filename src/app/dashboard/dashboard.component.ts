@@ -16,7 +16,12 @@ export class DashboardComponent implements OnInit {
 
   constructor(private adminService: AdminService, private route: ActivatedRoute) {}
 
- 
+  searchVisible: boolean = false;
+
+  toggleSearch() {
+    this.searchVisible = !this.searchVisible;
+  }
+  
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -28,3 +33,4 @@ export class DashboardComponent implements OnInit {
     });
   }
 }
+

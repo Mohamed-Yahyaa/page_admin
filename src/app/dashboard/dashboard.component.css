@@ -28,7 +28,15 @@
   width: 15em;
   border: 1px solid #ccc;
   border-radius: 6px;
+  transition: all 5s ease;
   
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 .admin-card {

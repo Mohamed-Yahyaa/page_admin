@@ -1,11 +1,15 @@
 <div class="dashboard-container">
-  <!-- Top Row: Name and Search -->
   <div class="top-row" *ngIf="displayedAdmin">
     <div class="name">{{ displayedAdmin.name }}</div>
-    <input type="text" placeholder="Search..." class="search-box" />
+    <button (click)="toggleSearch()" class="icon-button">
+      <i class="fas fa-search"></i>
+    </button>
+    <input
+      *ngIf="searchVisible" type="text" placeholder="Search..." class="search-box"
+    />
   </div>
+  
 
-  <!-- Single Admin Card -->
   <div class="admin-card" *ngIf="displayedAdmin">
     <div class="data-row">
       <div class="data-item"><strong>Pack:</strong> {{ displayedAdmin.pack }}</div>
