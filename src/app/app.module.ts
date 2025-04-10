@@ -9,11 +9,13 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'dashboard', component: DashboardComponent }
 ];
 
@@ -29,7 +31,9 @@ const routes: Routes = [
     MatIconButton,
     ReactiveFormsModule,
     MatIconAnchor,MatIconButton,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+   
+
   ],
   exports:[RouterModule],
   providers: [provideHttpClient(),],

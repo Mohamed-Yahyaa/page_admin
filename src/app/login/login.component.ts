@@ -25,6 +25,12 @@ export class LoginComponent {
       password: ['', Validators.required],
     });
   }
+  navigateToRecoverPassword(): void {
+    this.router.navigate(['/recover-password']);
+  }
+  navigateToDashboard(): void {
+    this.router.navigate(['/dashboard']);
+  }
 
   onSubmit() {
     if (this.loginForm.valid) {
