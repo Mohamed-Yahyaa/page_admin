@@ -10,13 +10,16 @@
   <div class="admin-card" *ngFor="let admin of filteredAdmins">
     <div class="data-row">
       <div class="data-item"><strong>Name:</strong> {{ admin.name }}</div>
+      <div class="data-item"><strong>Name d'utilisateur:</strong> {{ admin.utilisateur }}</div>
       <div class="data-item"><strong>Pack:</strong> {{ admin.pack }}</div>
       <div class="data-item"><strong>Options:</strong> {{ admin.options }}</div>
       <div class="data-item"><strong>Consommation:</strong> {{ admin.consommation }}</div>
+      <div class="data-item"><strong>Signature:</strong> {{ admin.signature }}</div>
       <div class="data-item"><strong>SMS:</strong> {{ admin.sms }}</div>
       <div class="data-item"><strong>OCR:</strong> {{ admin.ocr }}</div>
     </div>
-    <div class="date"><strong>Date:</strong> {{ admin.date }}</div>
+    <div class="date"><strong>Date Création:</strong> {{ admin.datecre }} <br> <br><strong>Date Révolution:</strong> {{ admin.daterev }}</div>
+   
   </div>
 
   <p *ngIf="searchTerm && filteredAdmins.length === 0">No user to display.</p>
