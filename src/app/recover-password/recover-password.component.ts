@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -14,25 +14,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./recover-password.component.css']
 })
 export class RecoverPasswordComponent {
-  loginForm: FormGroup;
-  hidePassword: boolean = true;
+  recoverPasswordForm: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router) {
-    this.loginForm = this.fb.group({
-      password: ['', [Validators.required, Validators.minLength(6)]]
+    this.recoverPasswordForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 
   onSubmit(): void {
-    if (this.loginForm.valid) {
-      // Handle form submission logic here
-      console.log('Form Submitted:', this.loginForm.value);
+    if (this.recoverPasswordForm.valid) {
+      const email = this.recoverPasswordForm.value.email;
+
+      
+      console.log(`Recovery email sent to: ${email}`);
+      alert('A recovery email has been sent to your email address.');
+      this.router.navigate(['/login']);
     } else {
       console.log('Form is invalid');
     }
   }
 
-  navigateToRecoverPassword(): void {
-    this.router.navigate(['/login']); // Adjust the route as needed
+  navigateToLogin(): void {
+    this.router.navigate(['/login']);
   }
 }
