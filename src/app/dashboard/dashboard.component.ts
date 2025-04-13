@@ -19,28 +19,29 @@ export class DashboardComponent implements OnInit {
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.adminService.getAdmins().subscribe(data => {
-      this.admins = data;
-
-    });
+    
   }
 
-  // toggleSearch() {
-  //   this.searchVisible = !this.searchVisible;
-  //   if (!this.searchVisible) {
-  //     this.searchTerm = '';
-  //     this.filteredAdmins = [];
-  //   }
-  // }
-
-  onSearchChange() {
+  onSearchClick(): void {
     const term = this.searchTerm.trim().toLowerCase();
-    if (term.length > 0) {
-      this.filteredAdmins = this.admins.filter(admin =>
-        admin.name.toLowerCase().includes(term)
-      );
+  
+    if (term) {
+      this.adminService.getAdmins().subscribe(data => {
+        this.admins = data;
+        this.filteredAdmins = this.admins.filter(admin =>
+          admin.name.toLowerCase() === term
+        );
+      });
     } else {
       this.filteredAdmins = [];
     }
   }
+
+  onSearchInputChange(): void {
+    if (!this.searchTerm.trim()) {
+      this.filteredAdmins = [];
+    }
+  }
+  
+  
 }
