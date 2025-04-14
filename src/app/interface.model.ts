@@ -1,15 +1,15 @@
 
 
 export interface Admin {
-  id: number;
+ 
   name: string;
-  utilisateur :string;
   pack: string;
-  options: string;
-  consommation: string;
-  signature: string;
-  sms: string;
-  ocr: string;
-  datecre: string;
-  daterev: string
+  dateSubscription: Date;
+  dateExpiration: Date;
+  userSupp:string;
+  options:string[];
+  smsConsomation: string;
+  signatureConsomation: string;
+  ocrConsomation: string;
+  tarifeoLicence: string;
 }
