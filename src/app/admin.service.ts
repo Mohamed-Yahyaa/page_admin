@@ -110,6 +110,19 @@ export class AdminService {
       ocr: 'Oui',
       datecre: '14/05/2025',
       daterev: '08/02/2026',
+    },
+    {
+      id: 9,
+      name: 'Foliatech',
+      utilisateur:'Brahim',
+      pack: 'Pack Premium',
+      options: 'Option A',
+      consommation: '100 Go',
+      signature: 'A',
+      sms: '500 SMS',
+      ocr: 'Oui',
+      datecre: '19/01/2023',
+      daterev: '08/02/2026',
     }
   ];
 
