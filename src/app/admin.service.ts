@@ -30,14 +30,14 @@ export class AdminService {
   }
 
   searchAdminsByName(name: string): Observable<Admin[]> {
-    return this.http.get<ApiSubscriptionInfo[]>(
-      `${this.apiUrl}?name=${encodeURIComponent(name)}`,
+    return this.http.get<Admin[]>(
+      `${this.apiUrl}/search?name=${encodeURIComponent(name)}`,
       { headers: this.getHeaders() }
     ).pipe(
-      map(apiResponses => apiResponses.map(res => this.transformApiData(res)[0])),
       catchError(this.handleError)
     );
   }
+
 
   private transformApiData(apiData: ApiSubscriptionInfo): Admin[] {
     return [{

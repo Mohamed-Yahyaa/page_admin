@@ -12,16 +12,16 @@ import { finalize } from 'rxjs';
   standalone: true,
   imports: [CommonModule, FormsModule],
 })
-export class DashboardComponent implements OnInit {   
+export class DashboardComponent implements OnInit {
   admins: Admin[] = [];
   filteredAdmins: Admin[] = [];
   searchTerm: string = '';
   searchVisible: boolean = true;
   isLoading: boolean = false;
   error: string | null = null;
-  currentSociete = ''; 
+  currentSociete = '';
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {
     this.loadAdmins();
@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
   loadAdmins(): void {
     this.isLoading = true;
     this.error = null;
-    
+
     this.adminService.getAdmins(this.currentSociete)
       .pipe(finalize(() => this.isLoading = false))
       .subscribe({
@@ -47,10 +47,25 @@ export class DashboardComponent implements OnInit {
   }
 
   onSearchClick(): void {
-    const term = this.searchTerm.trim().toLowerCase();
-    this.filteredAdmins = term ? this.admins.filter(admin => 
-      admin.name.toLowerCase().includes(term)
-    ) : [];
+    this.isLoading = true;
+    this.error = null;
+
+    this.adminService.getAdmins(this.currentSociete)
+      .pipe(finalize(() => this.isLoading = false))
+      .subscribe({
+        next: (data) => {
+          this.admins = data;
+          const term = this.searchTerm.trim().toLowerCase();
+          this.filteredAdmins = term
+            ? this.admins.filter(admin => admin.name.toLowerCase().includes(term))
+            : [];
+        },
+        error: (err) => {
+          this.error = err.message;
+          this.admins = [];
+          this.filteredAdmins = [];
+        }
+      });
   }
 
   onSearchInputChange(): void {
