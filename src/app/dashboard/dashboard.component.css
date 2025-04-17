@@ -89,11 +89,11 @@
 }
 
 .user-tag {
-  background: #f1f3f5;
-  padding: 4px 8px;
+  background: #dcdddf7a;
+  padding: 6px 8px;
   border-radius: 13px;
   font-size: 16px;
-  color: #444;
+  color: #000000;
 }
 
 .date-row {
