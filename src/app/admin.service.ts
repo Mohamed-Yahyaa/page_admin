@@ -20,12 +20,12 @@ export class AdminService {
     });
   }
 
-  getAdmins(societe: string): Observable<Admin[]> {
+  getAdmins(societe: string): Observable<Admin> {
     return this.http.get<ApiSubscriptionInfo>(`${this.apiUrl}/${encodeURIComponent(societe)}`, { headers: this.getHeaders() })
       .pipe(
         map(response => {
-          console.log('API Response:', response); // Log the response here
-          return response['admins'] || [];
+          console.log('API Response:', response); 
+          return response['value'];
         }),
         catchError(this.handleError)
       );

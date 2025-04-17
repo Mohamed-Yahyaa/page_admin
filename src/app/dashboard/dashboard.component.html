@@ -1,17 +1,17 @@
 <div class="dashboard-container">
 
-  <!-- Loading Spinner -->
+
   <div *ngIf="isLoading" class="loading-indicator">
     <i class="fas fa-spinner fa-spin"></i> Loading...
   </div>
 
-  <!-- Error Message -->
+ 
   <div *ngIf="error" class="error-message">
     <i class="fas fa-exclamation-triangle"></i> {{ error }}
     <button (click)="refreshData()">Retry</button>
   </div>
 
-  <!-- Search Bar -->
+ 
   <div class="top-row">
     <input *ngIf="searchVisible" type="text" placeholder="Search" class="search-box"
       [(ngModel)]="searchTerm" (input)="onSearchInputChange()" (keyup.enter)="onSearchClick()" />
@@ -20,13 +20,13 @@
     </button>
   </div>
 
-  <!-- No Results Message -->
+
   <div *ngIf="searchTerm && filteredAdmins.length === 0 && !isLoading" class="no-results">
     No matching companies found.
   </div>
 
-  <!-- Admin Cards -->
-  <div class="admin-card" *ngFor="let admin of admins">
+ 
+  <div class="admin-card" *ngFor="let admin of filteredAdmins">
     <div class="data-row">
       <div class="data-item"><strong>Name:</strong> {{ admin.name }}</div>
       <div class="data-item"><strong>Pack:</strong> {{ admin.pack }}</div>
@@ -54,8 +54,8 @@
     </div>
 
     <div class="date">
-      <strong>Date Création:</strong> {{ admin.dateSubscription.toLocaleDateString() }} <br><br>
-      <strong>Date Résolution:</strong> {{ admin.dateExpiration.toLocaleDateString() }}
+      <strong>Date Création:</strong> {{ admin.dateSubscription | date:'MM/d/yyyy' }} <br><br>
+      <strong>Date Résolution:</strong> {{ admin.dateExpiration | date:'MM/d/yyyy' }}
     </div>
   </div>
 </div>

@@ -4,7 +4,7 @@ export interface Admin {
   dateSubscription: Date;
   dateExpiration: Date;
   userSupp: number;
-  options: string[];
+  options: Array<any>;
   smsConsomation: number;
   signatureConsomation: number;
   ocrConsomation: number;

@@ -54,8 +54,8 @@ export class DashboardComponent implements OnInit {
       .pipe(finalize(() => this.isLoading = false))
       .subscribe({
         next: (data) => {
-          this.admins = data;
-          this.filteredAdmins = data;
+          this.admins = [data];
+          this.filteredAdmins = [data];
         },
         error: (err) => {
           this.error = 'Error fetching admins: ' + err.message;
@@ -65,7 +65,7 @@ export class DashboardComponent implements OnInit {
       });
   }
 
-  // Optional: Clear filtered results when the input is cleared
+ 
   onSearchInputChange(): void {
     if (!this.searchTerm.trim()) {
       this.filteredAdmins = [];
@@ -74,7 +74,7 @@ export class DashboardComponent implements OnInit {
   }
   
 
-  // Optional: Button to reload the latest data for the last searched societe
+
   refreshData(): void {
     if (this.searchTerm.trim()) {
       this.onSearchClick();
