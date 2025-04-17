@@ -19,62 +19,65 @@ export class DashboardComponent implements OnInit {
   searchVisible: boolean = true;
   isLoading: boolean = false;
   error: string | null = null;
-  currentSociete = '';
 
   constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {
-    this.loadAdmins();
+   
+  //  this.loadAdmins();
   }
+  // loadAdmins() {
+  //   const societe = 'yourSocieteName'; // You can replace this with the actual value
+  //   this.adminService.getAdmins(societe).subscribe({
+  //     next: (admins) => {
+  //       this.admins = admins; // Store the result in the variable
+  //     },
+  //     error: (err) => {
+  //       this.error = 'Error fetching admins: ' + err.message;
+  //     }
+  //   });
+  // }
 
-  loadAdmins(): void {
-    this.isLoading = true;
-    this.error = null;
-
-    this.adminService.getAdmins(this.currentSociete)
-      .pipe(finalize(() => this.isLoading = false))
-      .subscribe({
-        next: (data) => {
-          this.admins = data;
-          this.filteredAdmins = [];
-        },
-        error: (err) => {
-          this.error = err.message;
-          this.admins = [];
-          this.filteredAdmins = [];
-        }
-      });
-  }
-
+  
   onSearchClick(): void {
+    const societe = this.searchTerm.trim();
+
+    if (!societe) {
+      this.error = 'Please enter a societe name.';
+      return;
+    }
+
     this.isLoading = true;
     this.error = null;
 
-    this.adminService.getAdmins(this.currentSociete)
+    this.adminService.getAdmins(societe)
       .pipe(finalize(() => this.isLoading = false))
       .subscribe({
         next: (data) => {
           this.admins = data;
-          const term = this.searchTerm.trim().toLowerCase();
-          this.filteredAdmins = term
-            ? this.admins.filter(admin => admin.name.toLowerCase().includes(term))
-            : [];
+          this.filteredAdmins = data;
         },
         error: (err) => {
-          this.error = err.message;
+          this.error = 'Error fetching admins: ' + err.message;
           this.admins = [];
           this.filteredAdmins = [];
         }
       });
   }
 
+  // Optional: Clear filtered results when the input is cleared
   onSearchInputChange(): void {
     if (!this.searchTerm.trim()) {
       this.filteredAdmins = [];
+      this.admins = [];
     }
   }
+  
 
+  // Optional: Button to reload the latest data for the last searched societe
   refreshData(): void {
-    this.loadAdmins();
+    if (this.searchTerm.trim()) {
+      this.onSearchClick();
+    }
   }
 }
